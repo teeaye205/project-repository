@@ -11,7 +11,7 @@ Parameters:
     Description: Please enter your Key pair
     Type: AWS::EC2::KeyPair::KeyName
 
-  Subnets:
+  Subnet:
     Description: Please select your subnets used by ALB
     Type: List<AWS::EC2::Subnet::Id>
   
@@ -91,7 +91,7 @@ Resources:
       Scheme: internet-facing
       SecurityGroups:
         - !GetAtt ALBSecurityGroup.GroupId
-      Subnets: !Ref Subnets
+      Subnets: !Ref Subnet
       Type: application
 
   ALBListener:
